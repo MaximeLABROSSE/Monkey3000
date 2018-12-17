@@ -1,0 +1,30 @@
+
+extends layout.pug
+
+block ListeA
+	h1= 'Liste Enclos'
+	br
+	ul.list-group   
+		each enclos in  EnclosList
+			li.list-group-item
+				a(href='/enclos/' + enclos.id ) #{enclos.name}
+	p
+block ListeB	
+			button.btn.btn-primary(onclick="window.location.href='/'") Retour
+
+block creationContent
+
+	Form(method='POST' action='/enclos')
+		div.form-group
+			label(for='name') Name:
+			input#name.form-control(type='text', placeholder='' name='name')
+		div.form-group
+			label(for='NbreSinge')
+			input#NbreSinge.form-control(type='hidden', placeholder='' name='NbreSinge', value= 0)
+		div.form-group
+			label(for='ContenanceMax') ContenanceMax:
+			input#ContenanceMax.form-control(type='text', placeholder='' name='ContenanceMax')
+		button.btn.btn-primary(type='submit') Créer un Enclos
+	
+
+block detail

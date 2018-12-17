@@ -1,0 +1,29 @@
+
+extends layout.pug
+
+block detail
+	h1 Singe #{singe.username}
+	article 
+		h3 race: #{singe.race} 
+		h3 age: #{singe.age}
+		br
+		form( method="POST" , action="/enclos/" +singe.Enclos_ID2 + "/singes/" +   singe.id + "?_method=DELETE ")
+			button.btn.btn-primary() Suprimer ce Singe
+		//a(class='button' href="/") Retour
+		
+block creationContent
+	form( method="POST" , action="/singes/" + singe.id + "?_method=PUT " )
+		div.form-group
+			label(for='username') Name:
+			input#username.form-control(type='text', placeholder='' name='username')
+		div.form-group
+			label(for='race') race:
+			input#race.form-control(type='text', placeholder='' name='race')
+		div.form-group
+			label(for='age') age:
+			input#age.form-control(type='text', placeholder='' name='age')
+		button.btn.btn-primary(type='submit') Modifier Singe
+block ListeA
+	button.btn.btn-primary(onclick="window.location.href='/enclos'",personList.id ) Retour
+block ListeB
+	button.btn.btn-primary(onclick="window.location.href='/enclos'",personList.id ) Retour

@@ -1,0 +1,29 @@
+extends layout.pug
+
+block detail 
+		h1 Enclos ,    #{enclos.name}
+		article 
+			h3 Nbre de singe dans l'enclos:  #{enclos.NbreSinge}
+			h3 Contenance Max de l'enclos:  #{enclos.ContenanceMax}
+			br
+			button.btn.btn-primary(onclick="window.location.href='/enclos/" + + enclos.id + "/singes'") Creer Singe
+			br
+			br
+			form( method="POST" , action="/enclos/" + enclos.id + "?_method=DELETE ")
+				button.btn.btn-primary() Suprimer Enclos
+
+block creationContent
+	form( method="POST" , action="/enclos/" + enclos.id + "?_method=PUT " )
+			input( name="_method" type="hidden" value="PUT")
+			div.form-group
+				label(for='name') Name:
+				input#name.form-control(type='text', placeholder='' name='name')
+			div.form-group
+				label(for='ContenanceMax') ContenanceMax:
+				input#name.form-control(type='text', placeholder='' name='ContenanceMax')
+				br
+				button.btn.btn-primary(type='submit') Modifier Enclos
+block ListeB
+		button.btn.btn-primary(onclick="window.location.href='/enclos/" + + enclos.id + "/singes'") Liste Singe
+block ListeA
+		button.btn.btn-primary(onclick="window.location.href='/enclos'") Retour

@@ -1,0 +1,31 @@
+
+extends layout.pug
+
+block content 
+	h1= 	" enclos name: " + personList.name
+				
+	p 	
+		strong liste de singe:
+			
+	ul    
+		each user in personList.Singes
+		
+			li
+				strong
+					= user.username
+					a(href='/singes/'+user.id) #{user.username}
+	
+
+	form(method='POST' action='/enclos/'+ personList.id +'/singes')
+		div.form-group
+			label(for='username') Name:
+			input#username.form-control(type='text', placeholder='' name='username')
+		div.form-group
+			label(for='race') race:
+			input#race.form-control(type='text', placeholder='' name='race')
+		div.form-group
+			label(for='age') age:
+			input#age.form-control(type='text', placeholder='' name='age')
+		button.btn.btn-primary(type='submit') Sign up
+	a(class='button' href="/enclos") Retour
+	

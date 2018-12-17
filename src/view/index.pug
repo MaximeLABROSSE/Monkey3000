@@ -1,0 +1,23 @@
+
+
+extends layout.pug
+
+block ListeA
+	h6 Dans cette zone seront indiquer les différents enclos mais également le bouton retour
+	
+	
+block ListeB
+	h6 Dans cette zone seront indiquer les différents Singes mais également le bouton retour
+
+block creationContent
+	div
+		h1 Bienvenu sur Monkey Manager 3000
+		h4 Vous Posséder acctuellement:
+		h5 #{nbEnclos} Enclos
+		h5 #{nbSinge} Singe(s)
+		br
+		button.btn.btn-primary(onclick="window.location.href='/enclos'") Continuer
+
+
+block detail
+	h6 Dans cette zone seront indiquées les différents détails
